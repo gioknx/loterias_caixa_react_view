@@ -55,19 +55,28 @@ var resultsContainer = React.createClass({
           isLoading: false
         });
       }
-    ).then(() => console.log(this.state.items))
+    )
 
   },
 
   render: function() {
     return (
       <div>
-        <Results isLoading={ this.state.isLoading } contest={ this.state.items[0] } />
-        <Results backgroundColor="green" isLoading={ this.state.isLoading } contest={ this.state.items[1] } />
-        <Results backgroundColor="red" isLoading={ this.state.isLoading } contest={ this.state.items[2] } />
-        <Results isLoading={ this.state.isLoading } contest={ this.state.items[3] } />
-        <Results isLoading={ this.state.isLoading } contest={ this.state.items[4] } />
-        <Results isLoading={ this.state.isLoading } contest={ this.state.items[5] } />
+        <Results backgroundColor="#c2185b"
+          colNumber={ 6 }
+          isLoading={ this.state.isLoading }
+          contest={ this.state.items[0] } />
+        <Results colNumber={ 4 }
+          backgroundColor="#ff5722"
+          isLoading={ this.state.isLoading }
+          contest={ this.state.items[1] } />
+        <Results backgroundColor="#283593" isLoading={ this.state.isLoading } contest={ this.state.items[2] } />
+        <Results backgroundColor="#117e56" isLoading={ this.state.isLoading } contest={ this.state.items[3] } />
+        <Results backgroundColor="#ffeb3b" isLoading={ this.state.isLoading } contest={ this.state.items[4] } />
+        <Results backgroundColor="#8c0081"
+          colNumber={ 5 }
+          isLoading={ this.state.isLoading }
+          contest={ this.state.items[5] } />
       </div>
       );
   }
@@ -75,3 +84,7 @@ var resultsContainer = React.createClass({
 });
 
 module.exports = resultsContainer;
+
+
+/*
+         />*/

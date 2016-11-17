@@ -20,7 +20,7 @@ function Results(props) {
       <h3>Concurso: { props.contest.contest_number }</h3>
       <h3>Data: { props.contest.contest_date }</h3>
       <div style={ { textAlign: "center" } }>
-        <NumberList backgroundColor={ props.backgroundColor } numbers={ props.contest.numbers } />
+        <NumberList colNumber={ props.colNumber } backgroundColor={ props.backgroundColor } numbers={ props.contest.numbers } />
       </div>
       <h2 style={ { float: "right" } }>Premio: { props.contest.prize }</h2>
     </div>

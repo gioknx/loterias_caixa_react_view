@@ -2,21 +2,59 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 
 
-var styles = require('../styles');
-var key_index = 0;
-function NumberList(props) {
+//var styles = require('../styles');
 
-  styles.numbers.backgroundColor = props.backgroundColor;
+function NumberList(props) {
+  console.log("NumberList.props:", props);
+
+
+  var styles = {
+    table: {
+      margin: "0 auto"
+    },
+    numbers: {
+      display: "inline-block",
+      textAlign: "center",
+      color: "#fff",
+      borderRadius: "50%",
+      marginRight: "5px",
+      width: "44px",
+      height: "44px",
+      fontSize: "22px",
+      lineHeight: "44px",
+      backgroundColor: props.backgroundColor
+    }
+  };
+
+  var columns = props.numbers.map(function(item, index) {
+    return (
+      <td style={ styles.numbers } key={ index }>
+        { item }
+      </td>
+    )
+  })
+  var lineCount = props.colNumber === 0 ? props.numbers.length : props.numbers.length / 1;
+  var columnSize = props.colNumber === 0 ? props.numbers.length : props.colNumber;
+  var lines = [];
+
+  console.log(lineCount);
+  for (var i = 0; i < lineCount; i++) {
+    lines.push(columns.slice(i * columnSize, (i + 1) * columnSize));
+  }
+  console.log(lines);
+
 
   return (
-    <ul style={ { padding: 0 } }>
-      { props.numbers.map(function(item) {
-        
-          return <li style={ styles.numbers } key={ key_index++ }>
-                   { item }
-                 </li>
-        }) }
-    </ul>
+    <table style={ styles.table }>
+      <tbody>
+        { lines.map(function(item, index) {
+            return <tr key={ index }>
+                     { item }
+                   </tr>
+          
+          }) }
+      </tbody>
+    </table>
   )
 }
 
@@ -25,7 +63,8 @@ NumberList.propTypes = {
 }
 
 NumberList.defaultProps = {
-  backgroundColor: "blue"
+  backgroundColor: "blue",
+  colNumber: 0
 }
 
 module.exports = NumberList;
