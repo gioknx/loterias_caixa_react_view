@@ -3,7 +3,6 @@ var Results = require('../components/results');
 
 var Home = React.createClass({
   getInitialState: function() {
-    console.log("CEGOU");
     return {
       isLoading: true,
       items: [{

@@ -2,7 +2,18 @@ var React = require('react');
 
 var Results = require('../components/results');
 
-
+var updateData = function() {
+  var uri = "http://localhost:3000/api/loterias/" + this.props.route.contestName + ".json";
+  fetch(uri)
+    .then(result => result.json())
+    .then(contest => {
+      this.setState({
+        contest,
+        isLoading: false
+      });
+    }
+  )
+}
 var resultsContainer = React.createClass({
 
   getInitialState: function() {
@@ -18,24 +29,26 @@ var resultsContainer = React.createClass({
     }
   },
   componentWillMount: function() {
-    var uri = "http://localhost:3000/api/loterias/" + this.props.route.contestName + ".json";
-    console.log(uri);
-    fetch(uri)
-      .then(result => result.json())
-      .then(contest => {
-        console.log("COntest", contest);
-        this.setState({
-          contest,
-          isLoading: false
-        });
-      }
-    )
+    this.setState({
+      backgroundColor: this.props.backgroundColor,
+      isLoading: true
+    });
+    updateData = updateData.bind(this);
 
+    updateData();
+  },
+  componentWillReceiveProps: function() {
+    this.setState({
+      backgroundColor: this.props.route.backgroundColor,
+      isLoading: true
+    });
+    updateData = updateData.bind(this);
+    updateData();
   },
   render: function() {
     return (
       <div>
-        <Results backgroundColor={ this.props.backgroundColor } isLoading={ this.props.isLoading } contest={ this.state.contest } />
+        <Results backgroundColor={ this.state.backgroundColor } isLoading={ this.state.isLoading } contest={ this.state.contest } />
       </div>
       );
   }

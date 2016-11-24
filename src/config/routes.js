@@ -13,8 +13,14 @@ var routes = (
 <Router history={ hashHistory }>
   <Route path='/' component={ Main }>
     <IndexRoute component={ Home } />
-    <Route path='megasena' contestName='megasena' component={ resultsContainer } />
-    <Route path='lotomania' contestName='lotomania' component={ resultsContainer } />
+    <Route path='/megasena'
+      contestName='megasena'
+      backgroundColor="#117e56"
+      component={ resultsContainer } />
+    <Route path='/lotomania'
+      contestName='lotomania'
+      backgroundColor="#8c0081"
+      component={ resultsContainer } />
   </Route>
 </Router>
 );

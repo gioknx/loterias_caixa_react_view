@@ -5,8 +5,6 @@ var PropTypes = React.PropTypes;
 //var styles = require('../styles');
 
 function NumberList(props) {
-  console.log("NumberList.props:", props);
-
 
   var styles = {
     table: {
@@ -37,11 +35,9 @@ function NumberList(props) {
   var columnSize = props.colNumber === 0 ? props.numbers.length : props.colNumber;
   var lines = [];
 
-  console.log(lineCount);
   for (var i = 0; i < lineCount; i++) {
     lines.push(columns.slice(i * columnSize, (i + 1) * columnSize));
   }
-  console.log(lines);
 
 
   return (
