@@ -9,7 +9,11 @@ var Main = React.createClass({
         <nav className="navbar">
           <span className="logo">Loterias Net React</span>
           <li className="menu-list-item">
-            <Link className="menu-item-link" to="/"> Home
+            <Link className="menu-item-link" to="/lotofacil"> lotofacil
+            </Link>
+          </li>
+          <li className="menu-list-item">
+            <Link className="menu-item-link" to="/timemania"> timemania
             </Link>
           </li>
           <li className="menu-list-item">
@@ -17,7 +21,19 @@ var Main = React.createClass({
             </Link>
           </li>
           <li className="menu-list-item">
+            <Link className="menu-item-link" to="/quina"> quina
+            </Link>
+          </li>
+          <li className="menu-list-item">
             <Link className="menu-item-link" to="/lotomania"> lotomania
+            </Link>
+          </li>
+          <li className="menu-list-item">
+            <Link className="menu-item-link" to="/duplasena"> duplasena
+            </Link>
+          </li>
+          <li className="menu-list-item">
+            <Link className="menu-item-link" to="/"> Home
             </Link>
           </li>
         </nav>
