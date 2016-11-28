@@ -2,6 +2,7 @@ var React = require('react');
 
 var Results = require('../components/results');
 
+
 var updateData = function() {
   var uri = "http://localhost:3000/api/loterias/" + this.props.route.contestName + ".json";
   fetch(uri)
@@ -12,7 +13,7 @@ var updateData = function() {
         isLoading: false
       });
     }
-  )
+  );
 }
 var resultsContainer = React.createClass({
 

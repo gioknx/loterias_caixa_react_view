@@ -1,7 +1,6 @@
 var React = require('react');
-import { Router, Route, Link } from 'react-router'
+import { Link } from 'react-router'
 
-var styles = {}
 var Main = React.createClass({
   render: function() {
     return (
